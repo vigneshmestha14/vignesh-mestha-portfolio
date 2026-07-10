@@ -6,6 +6,44 @@ navLinks.querySelectorAll("a").forEach((l) =>
   l.addEventListener("click", () => navLinks.classList.remove("open"))
 );
 
+// ---------- Theme toggle ----------
+const themeToggle = document.getElementById("themeToggle");
+const stored = localStorage.getItem("theme");
+if (stored) {
+  document.body.classList.toggle("theme-light", stored === "light");
+} else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+  document.body.classList.add("theme-light");
+}
+themeToggle.addEventListener("click", () => {
+  const isLight = document.body.classList.toggle("theme-light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
+// ---------- Back to top ----------
+const toTop = document.getElementById("toTop");
+toTop.addEventListener("click", () =>
+  window.scrollTo({ top: 0, behavior: "smooth" })
+);
+
+// ---------- Preloader ----------
+const preloader = document.getElementById("preloader");
+const preloaderBar = document.getElementById("preloaderBar");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (reduceMotion) {
+  preloader.classList.add("is-done");
+} else {
+  let p = 0;
+  const iv = setInterval(() => {
+    p += Math.random() * 18 + 6;
+    if (p >= 100) { p = 100; clearInterval(iv); finishPreload(); }
+    preloaderBar.style.width = p + "%";
+  }, 130);
+  function finishPreload() {
+    setTimeout(() => preloader.classList.add("is-done"), 260);
+  }
+}
+
+
 // ---------- Custom cursor ----------
 const cursor = document.getElementById("cursor");
 const cursorDot = document.getElementById("cursorDot");
@@ -35,10 +73,11 @@ addEventListener("scroll", () => {
   progress.style.width = pct + "%";
 });
 
-// ---------- Navbar shadow ----------
+// ---------- Navbar shadow + back-to-top ----------
 const nav = document.getElementById("nav");
 addEventListener("scroll", () => {
   nav.style.boxShadow = window.scrollY > 10 ? "0 6px 24px rgba(0,0,0,0.4)" : "none";
+  toTop.classList.toggle("is-visible", window.scrollY > 500);
 });
 
 // ---------- Reveal on scroll ----------

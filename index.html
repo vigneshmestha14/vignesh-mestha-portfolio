@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__logo">VM<span>.</span></div>
+    <div class="preloader__bar"><span id="preloaderBar"></span></div>
+  </div>
+
   <!-- Scroll progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -32,6 +38,9 @@
       <a href="#education">edu</a>
       <a href="#contact">contact</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light / dark">
+      <span class="theme-toggle__sun">☀</span><span class="theme-toggle__moon">☾</span>
+    </button>
     <a href="resume.pdf" class="btn btn--small" download>resume ↓</a>
     <button class="nav__toggle" id="navToggle" aria-label="Menu">☰</button>
   </header>
@@ -42,8 +51,13 @@
       <span class="blob blob--1"></span>
       <span class="blob blob--2"></span>
       <span class="blob blob--3"></span>
+      <div class="hero__grid" aria-hidden="true"></div>
     </div>
     <div class="hero__inner">
+      <div class="hero__avatar reveal" aria-hidden="true">
+        <span class="hero__avatar-ring"></span>
+        <span class="hero__avatar-initials">VM</span>
+      </div>
       <span class="badge reveal">● available for new roles</span>
       <h1 class="hero__title reveal">
         Vignesh<br /><span class="grad">Mestha</span>
@@ -158,30 +172,35 @@
         <h3>Medallion Pipeline + CI/CD</h3>
         <p>End-to-end Medallion architecture in Microsoft Fabric: SQL mirroring &amp; Copy Jobs → Bronze, dynamic metadata-driven Silver (Dim overwrite / Fact append), Gold Warehouse via Dataflow Gen2, Direct Lake Power BI. Variable Libraries + GitHub/Azure DevOps across Dev → Test → Prod.</p>
         <div class="project__stack"><span>Fabric</span><span>Dataflow Gen2</span><span>Pipelines</span><span>Power BI</span></div>
+        <a href="#" class="project__link">case study →</a>
       </article>
       <article class="project reveal tilt">
         <div class="project__top"><span class="project__tag">PostgreSQL</span><span class="project__tag">DBT</span></div>
         <h3>Walmart Source-to-Mart</h3>
         <p>Ghost-hosted PostgreSQL Walmart dataset (6 tables, 42,796 rows). Designed a DBT Medallion build — Bronze load, Silver One-Big-Table, Gold star schema with SCD-2 snapshots. A runnable analogue of the Fabric pipeline, queryable from DBeaver.</p>
         <div class="project__stack"><span>PostgreSQL</span><span>DBT</span><span>SQL</span></div>
+        <a href="#" class="project__link">case study →</a>
       </article>
       <article class="project reveal tilt">
         <div class="project__top"><span class="project__tag">Python</span><span class="project__tag">Fabric REST API</span></div>
         <h3>MDIF Migration Automation</h3>
         <p>Python utilities on Microsoft Fabric REST APIs that automate object creation and data loading from SQL Server into Fabric — cutting repetitive manual migration work and boosting dev efficiency.</p>
         <div class="project__stack"><span>Python</span><span>REST APIs</span><span>Azure</span></div>
+        <a href="#" class="project__link">case study →</a>
       </article>
       <article class="project reveal tilt">
         <div class="project__top"><span class="project__tag">Flask</span><span class="project__tag">Full-stack</span></div>
         <h3>Flask To-Do Web App</h3>
         <p>Full-stack Flask app with SQLite, registration/login (Flask-Login), WTForms, task CRUD, and email-reminder routes. Secure sessions + relational modeling.</p>
         <div class="project__stack"><span>Flask</span><span>SQLite</span><span>HTML/CSS</span></div>
+        <a href="#" class="project__link">case study →</a>
       </article>
       <article class="project reveal tilt">
         <div class="project__top"><span class="project__tag">Flask</span><span class="project__tag">REST API</span></div>
         <h3>Flask Demo API + UI</h3>
         <p>Lightweight Flask REST API (greet + add endpoints) served with a styled HTML/CSS frontend using fetch — a clean reference for API-first design.</p>
         <div class="project__stack"><span>Flask</span><span>REST</span><span>JS</span></div>
+        <a href="#" class="project__link">case study →</a>
       </article>
     </div>
   </section>
@@ -224,6 +243,8 @@
   <footer class="footer">
     <p>© <span id="year"></span> Vignesh Mestha · crafted with HTML, CSS &amp; JS</p>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
