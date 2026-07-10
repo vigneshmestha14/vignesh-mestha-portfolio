@@ -7,61 +7,92 @@
   <title>Vignesh Mestha · Data Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- Navbar -->
   <header class="nav" id="nav">
     <a href="#home" class="nav__brand">VM<span>.</span></a>
     <nav class="nav__links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">exp</a>
+      <a href="#projects">work</a>
+      <a href="#education">edu</a>
+      <a href="#contact">contact</a>
     </nav>
-    <a href="resume.pdf" class="btn btn--small" download>Resume ↓</a>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <a href="resume.pdf" class="btn btn--small" download>resume ↓</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">☰</button>
   </header>
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <div class="hero__bg"></div>
+    <div class="hero__bg">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+    </div>
     <div class="hero__inner">
-      <p class="hero__eyebrow reveal">Data Engineer · Microsoft Fabric · Azure</p>
-      <h1 class="hero__title reveal">Vignesh Mestha</h1>
-      <p class="hero__sub reveal">I build scalable, metadata-driven data pipelines that move enterprise data from fragmented sources to analytics-ready marts.</p>
+      <span class="badge reveal">● available for new roles</span>
+      <h1 class="hero__title reveal">
+        Vignesh<br /><span class="grad">Mestha</span>
+      </h1>
+      <p class="hero__role reveal">
+        <span class="hero__role-label">I'm a&nbsp;</span>
+        <span id="typed" class="typed"></span><span class="caret">|</span>
+      </p>
+      <p class="hero__sub reveal">
+        Data Engineer turning fragmented enterprise data into analytics-ready marts —
+        Microsoft Fabric, Azure, PySpark &amp; SQL, at scale.
+      </p>
       <div class="hero__cta reveal">
-        <a href="#projects" class="btn">View Projects</a>
-        <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        <a href="#projects" class="btn">see the work →</a>
+        <a href="#contact" class="btn btn--ghost">let's talk</a>
       </div>
       <div class="hero__stats reveal">
-        <div><strong>4+</strong><span>Years Experience</span></div>
-        <div><strong>3</strong><span>Microsoft Certs</span></div>
-        <div><strong>42K+</strong><span>Rows Piped (demo)</span></div>
+        <div><strong>4+</strong><span>yrs experience</span></div>
+        <div><strong>3</strong><span>azure / fabric certs</span></div>
+        <div><strong>42K+</strong><span>rows piped (demo)</span></div>
       </div>
     </div>
+    <a href="#about" class="scroll-hint" aria-hidden="true">scroll ↓</a>
   </section>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Microsoft Fabric ✦ Azure ✦ PySpark ✦ SQL ✦ Delta Lake ✦ Medallion ✦ ETL/ELT ✦ Data Quality ✦ </span>
+      <span>Microsoft Fabric ✦ Azure ✦ PySpark ✦ SQL ✦ Delta Lake ✦ Medallion ✦ ETL/ELT ✦ Data Quality ✦ </span>
+    </div>
+  </div>
 
   <!-- About -->
   <section class="section" id="about">
     <div class="section__head reveal">
       <span class="section__kicker">01</span>
-      <h2>About</h2>
+      <h2>about<span class="dot">.</span></h2>
     </div>
     <div class="about reveal">
       <p>
         Data Engineer with <strong>4+ years</strong> of experience in ETL development, Microsoft Fabric,
-        Azure Data Services, SQL, Python, and PySpark. I turn Technical Design Documents into scalable,
-        production-grade pipelines and develop custom PySpark notebooks for complex transformations.
+        Azure Data Services, SQL, Python, and PySpark. I translate Technical Design Documents into scalable,
+        production-grade pipelines and build custom PySpark notebooks for complex transformations.
       </p>
       <p>
-        I've delivered enterprise migrations from SQL Server and Oracle into the Microsoft Fabric Lakehouse
-        using a <strong>Metadata-Driven Ingestion Framework (MDIF)</strong>, built Python automation on Fabric
-        REST APIs to cut repetitive migration work, and owned data-quality, reconciliation, and QA troubleshooting
-        end to end.
+        I've shipped enterprise migrations from SQL Server and Oracle into the Microsoft Fabric Lakehouse
+        using a <strong>Metadata-Driven Ingestion Framework (MDIF)</strong>, automated object creation via Fabric
+        REST APIs, and owned data-quality, reconciliation, and QA troubleshooting end to end.
       </p>
       <ul class="about__highlights">
         <li>Medallion Architecture (Bronze → Silver → Gold)</li>
@@ -76,33 +107,15 @@
   <section class="section" id="skills">
     <div class="section__head reveal">
       <span class="section__kicker">02</span>
-      <h2>Skills</h2>
+      <h2>skills<span class="dot">.</span></h2>
     </div>
-    <div class="skills">
-      <div class="skill-card reveal">
-        <h3>Programming</h3>
-        <div class="tags"><span>Python</span><span>SQL</span><span>T-SQL</span><span>PySpark</span><span>Pandas</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Data Engineering</h3>
-        <div class="tags"><span>Microsoft Fabric</span><span>Lakehouse</span><span>Warehouse</span><span>Notebooks</span><span>Delta Lake</span><span>ETL / ELT</span><span>Data Quality</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Azure</h3>
-        <div class="tags"><span>ADLS Gen2</span><span>Synapse</span><span>Key Vault</span><span>Event Hub</span><span>App Services</span><span>Azure OpenAI</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Data Modeling</h3>
-        <div class="tags"><span>Medallion</span><span>Star Schema</span><span>Snowflake</span><span>Metadata-Driven</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Tools &amp; Concepts</h3>
-        <div class="tags"><span>Git</span><span>GitHub</span><span>Azure DevOps</span><span>GitHub Copilot</span><span>Streamlit</span><span>REST APIs</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Databases</h3>
-        <div class="tags"><span>SQL Server</span><span>Oracle</span><span>SQLite</span><span>PostgreSQL</span></div>
-      </div>
+    <div class="skills stagger">
+      <div class="skill-card reveal"><h3>Programming</h3><div class="tags"><span>Python</span><span>SQL</span><span>T-SQL</span><span>PySpark</span><span>Pandas</span></div></div>
+      <div class="skill-card reveal"><h3>Data Engineering</h3><div class="tags"><span>Microsoft Fabric</span><span>Lakehouse</span><span>Warehouse</span><span>Notebooks</span><span>Delta Lake</span><span>ETL / ELT</span><span>Data Quality</span></div></div>
+      <div class="skill-card reveal"><h3>Azure</h3><div class="tags"><span>ADLS Gen2</span><span>Synapse</span><span>Key Vault</span><span>Event Hub</span><span>App Services</span><span>Azure OpenAI</span></div></div>
+      <div class="skill-card reveal"><h3>Data Modeling</h3><div class="tags"><span>Medallion</span><span>Star Schema</span><span>Snowflake</span><span>Metadata-Driven</span></div></div>
+      <div class="skill-card reveal"><h3>Tools &amp; Concepts</h3><div class="tags"><span>Git</span><span>GitHub</span><span>Azure DevOps</span><span>GitHub Copilot</span><span>Streamlit</span><span>REST APIs</span></div></div>
+      <div class="skill-card reveal"><h3>Databases</h3><div class="tags"><span>SQL Server</span><span>Oracle</span><span>SQLite</span><span>PostgreSQL</span></div></div>
     </div>
   </section>
 
@@ -110,7 +123,7 @@
   <section class="section" id="experience">
     <div class="section__head reveal">
       <span class="section__kicker">03</span>
-      <h2>Experience</h2>
+      <h2>experience<span class="dot">.</span></h2>
     </div>
     <div class="timeline">
       <div class="timeline__item reveal">
@@ -137,54 +150,35 @@
   <section class="section" id="projects">
     <div class="section__head reveal">
       <span class="section__kicker">04</span>
-      <h2>Projects</h2>
+      <h2>selected work<span class="dot">.</span></h2>
     </div>
-    <div class="projects">
-      <article class="project reveal">
-        <div class="project__top">
-          <span class="project__tag">Microsoft Fabric</span>
-          <span class="project__tag">Dataflow Gen2</span>
-        </div>
-        <h3>Medallion Pipeline + CI/CD (Fabric)</h3>
-        <p>End-to-end Medallion architecture in Microsoft Fabric: SQL mirroring &amp; Copy Jobs into Bronze, dynamic metadata-driven Silver pipelines (Dim overwrite / Fact append), Gold Warehouse via Dataflow Gen2, and Direct Lake Power BI. Added Variable Libraries + GitHub/Azure DevOps deployment across Dev → Test → Prod.</p>
+    <div class="projects stagger">
+      <article class="project reveal tilt">
+        <div class="project__top"><span class="project__tag">Fabric</span><span class="project__tag">Dataflow Gen2</span></div>
+        <h3>Medallion Pipeline + CI/CD</h3>
+        <p>End-to-end Medallion architecture in Microsoft Fabric: SQL mirroring &amp; Copy Jobs → Bronze, dynamic metadata-driven Silver (Dim overwrite / Fact append), Gold Warehouse via Dataflow Gen2, Direct Lake Power BI. Variable Libraries + GitHub/Azure DevOps across Dev → Test → Prod.</p>
         <div class="project__stack"><span>Fabric</span><span>Dataflow Gen2</span><span>Pipelines</span><span>Power BI</span></div>
       </article>
-
-      <article class="project reveal">
-        <div class="project__top">
-          <span class="project__tag">PostgreSQL</span>
-          <span class="project__tag">DBT</span>
-        </div>
-        <h3>Walmart Source-to-Mart Pipeline</h3>
-        <p>Standalone Ghost-hosted PostgreSQL Walmart dataset (6 tables, 42,796 rows). Designed a DBT Medallion build: Bronze load, Silver One-Big-Table, Gold star schema with SCD-2 snapshots — a runnable analogue of the Fabric pipeline, queryable from DBeaver.</p>
+      <article class="project reveal tilt">
+        <div class="project__top"><span class="project__tag">PostgreSQL</span><span class="project__tag">DBT</span></div>
+        <h3>Walmart Source-to-Mart</h3>
+        <p>Ghost-hosted PostgreSQL Walmart dataset (6 tables, 42,796 rows). Designed a DBT Medallion build — Bronze load, Silver One-Big-Table, Gold star schema with SCD-2 snapshots. A runnable analogue of the Fabric pipeline, queryable from DBeaver.</p>
         <div class="project__stack"><span>PostgreSQL</span><span>DBT</span><span>SQL</span></div>
       </article>
-
-      <article class="project reveal">
-        <div class="project__top">
-          <span class="project__tag">Python</span>
-          <span class="project__tag">Fabric REST API</span>
-        </div>
+      <article class="project reveal tilt">
+        <div class="project__top"><span class="project__tag">Python</span><span class="project__tag">Fabric REST API</span></div>
         <h3>MDIF Migration Automation</h3>
-        <p>Python utilities on Microsoft Fabric REST APIs that automate object creation and data loading from SQL Server into Fabric — reducing repetitive manual migration tasks and improving developer efficiency during enterprise migrations.</p>
+        <p>Python utilities on Microsoft Fabric REST APIs that automate object creation and data loading from SQL Server into Fabric — cutting repetitive manual migration work and boosting dev efficiency.</p>
         <div class="project__stack"><span>Python</span><span>REST APIs</span><span>Azure</span></div>
       </article>
-
-      <article class="project reveal">
-        <div class="project__top">
-          <span class="project__tag">Flask</span>
-          <span class="project__tag">Full-stack</span>
-        </div>
+      <article class="project reveal tilt">
+        <div class="project__top"><span class="project__tag">Flask</span><span class="project__tag">Full-stack</span></div>
         <h3>Flask To-Do Web App</h3>
-        <p>Full-stack Flask application with SQLite, user registration/login (Flask-Login), WTForms, task CRUD, and email-reminder routes. Demonstrates secure session handling and relational modeling.</p>
+        <p>Full-stack Flask app with SQLite, registration/login (Flask-Login), WTForms, task CRUD, and email-reminder routes. Secure sessions + relational modeling.</p>
         <div class="project__stack"><span>Flask</span><span>SQLite</span><span>HTML/CSS</span></div>
       </article>
-
-      <article class="project reveal">
-        <div class="project__top">
-          <span class="project__tag">Flask</span>
-          <span class="project__tag">REST API</span>
-        </div>
+      <article class="project reveal tilt">
+        <div class="project__top"><span class="project__tag">Flask</span><span class="project__tag">REST API</span></div>
         <h3>Flask Demo API + UI</h3>
         <p>Lightweight Flask REST API (greet + add endpoints) served with a styled HTML/CSS frontend using fetch — a clean reference for API-first design.</p>
         <div class="project__stack"><span>Flask</span><span>REST</span><span>JS</span></div>
@@ -195,10 +189,7 @@
   <!-- Education + Certs -->
   <section class="section section--split" id="education">
     <div>
-      <div class="section__head reveal">
-        <span class="section__kicker">05</span>
-        <h2>Education</h2>
-      </div>
+      <div class="section__head reveal"><span class="section__kicker">05</span><h2>education<span class="dot">.</span></h2></div>
       <div class="card reveal">
         <h3>Bachelor of Computer Applications (BCA)</h3>
         <p>Bhandarkars Arts and Science College, Kundapur — Mangalore University</p>
@@ -206,10 +197,7 @@
       </div>
     </div>
     <div>
-      <div class="section__head reveal">
-        <span class="section__kicker">06</span>
-        <h2>Certifications</h2>
-      </div>
+      <div class="section__head reveal"><span class="section__kicker">06</span><h2>certs<span class="dot">.</span></h2></div>
       <ul class="certs">
         <li class="reveal"><strong>DP-600</strong><span>Microsoft Fabric Analytics Engineer Associate · May 2024</span></li>
         <li class="reveal"><strong>DP-203</strong><span>Microsoft Azure Data Engineer Associate · Feb 2023</span></li>
@@ -220,23 +208,21 @@
 
   <!-- Contact -->
   <section class="section contact" id="contact">
-    <div class="section__head reveal">
-      <span class="section__kicker">07</span>
-      <h2>Contact</h2>
-    </div>
+    <div class="section__head reveal"><span class="section__kicker">07</span><h2>say hi<span class="dot">.</span></h2></div>
     <div class="contact__inner reveal">
+      <h3 class="contact__title">let's build something <span class="grad">with data</span></h3>
       <p>Open to data engineering roles and collaborations. Reach out directly:</p>
       <div class="contact__links">
         <a href="mailto:vigneshmestha14@gmail.com" class="chip">✉️ vigneshmestha14@gmail.com</a>
         <a href="tel:+918546955414" class="chip">📞 +91 8546955414</a>
-        <a href="https://linkedin.com/in/vignesh-mestha" target="_blank" rel="noopener" class="chip">🔗 LinkedIn</a>
-        <a href="resume.pdf" class="chip" download>📄 Download Resume</a>
+        <a href="https://linkedin.com/in/vignesh-mestha" target="_blank" rel="noopener" class="chip">🔗 linkedin</a>
+        <a href="resume.pdf" class="chip" download>📄 resume</a>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Vignesh Mestha · Built with HTML, CSS &amp; JavaScript</p>
+    <p>© <span id="year"></span> Vignesh Mestha · crafted with HTML, CSS &amp; JS</p>
   </footer>
 
   <script src="script.js"></script>
