@@ -10,13 +10,13 @@ navLinks.querySelectorAll("a").forEach((l) =>
 const themeToggle = document.getElementById("themeToggle");
 const stored = localStorage.getItem("theme");
 if (stored) {
-  document.body.classList.toggle("theme-light", stored === "light");
-} else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-  document.body.classList.add("theme-light");
+  document.body.classList.toggle("theme-dark", stored === "dark");
+} else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  document.body.classList.add("theme-dark");
 }
 themeToggle.addEventListener("click", () => {
-  const isLight = document.body.classList.toggle("theme-light");
-  localStorage.setItem("theme", isLight ? "light" : "dark");
+  const isDark = document.body.classList.toggle("theme-dark");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
 // ---------- Back to top ----------
@@ -43,28 +43,6 @@ if (reduceMotion) {
   }
 }
 
-
-// ---------- Custom cursor ----------
-const cursor = document.getElementById("cursor");
-const cursorDot = document.getElementById("cursorDot");
-let cx = innerWidth / 2, cy = innerHeight / 2, dx = cx, dy = cy;
-addEventListener("mousemove", (e) => {
-  cx = e.clientX; cy = e.clientY;
-  cursorDot.style.left = cx + "px";
-  cursorDot.style.top = cy + "px";
-});
-(function loop() {
-  dx += (cx - dx) * 0.18;
-  dy += (cy - dy) * 0.18;
-  cursor.style.left = dx + "px";
-  cursor.style.top = dy + "px";
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll("a, button, .project, .skill-card, .chip").forEach((el) => {
-  el.addEventListener("mouseenter", () => cursor.classList.add("is-hover"));
-  el.addEventListener("mouseleave", () => cursor.classList.remove("is-hover"));
-});
-
 // ---------- Scroll progress ----------
 const progress = document.getElementById("scrollProgress");
 addEventListener("scroll", () => {
@@ -76,7 +54,7 @@ addEventListener("scroll", () => {
 // ---------- Navbar shadow + back-to-top ----------
 const nav = document.getElementById("nav");
 addEventListener("scroll", () => {
-  nav.style.boxShadow = window.scrollY > 10 ? "0 6px 24px rgba(0,0,0,0.4)" : "none";
+  nav.style.boxShadow = window.scrollY > 10 ? "0 6px 24px rgba(0,0,0,0.12)" : "none";
   toTop.classList.toggle("is-visible", window.scrollY > 500);
 });
 
